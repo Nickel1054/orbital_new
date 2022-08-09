@@ -1,0 +1,23 @@
+nav div{
+    font-size: larger;
+}
+
+nav div .navbar-brand{
+    font-size: larger;
+}
+
+.article-text{
+    /*background-color: floralwhite;*/
+}
+
+.index-p{
+    text-align: justify;
+    font-size: larger;
+    font-family: Arial;
+    font-weight: bold;
+}
+
+.nav-right{
+    background-color: red;
+    /*text-align: right;*/
+}

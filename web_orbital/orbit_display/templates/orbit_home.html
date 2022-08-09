@@ -1,0 +1,48 @@
+{% extends "orbit_base.html" %}
+
+{% load django_bootstrap5 %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block body_block %}
+    <script type="text/javascript" src="{% static 'orbit_display/js/dynamic_form.js' %}"></script>
+    <div class="h-100 p-5 bg-light border rounded-3">
+        <h1>This is an orbit visualisation page</h1><br>
+        {% if planets %}
+            <h4>Select celestial bodies to display</h4>
+        {% else %}
+            <h4>No planets to display!</h4>
+        {% endif %}
+    </div>
+
+    <hr>
+    {% if planets %}
+        <div class="h-100 p-5 bg-light border rounded-3">
+        <h2>Planets of the Solar System</h2>
+        <hr>
+
+        <form action="{% url 'orbit_display:plot-view' %}" method="post" class="planetsform" id="postform">
+            {% csrf_token %}
+{#            {{ form }}#}
+            {% for planet in planets %}
+                <input id="check-{{ planet.name }}" name="check-{{ planet.name }}" type="checkbox">
+                <label for="check-{{ planet.name }}">{{ planet.name }}</label>
+                <br>
+            {% endfor %}
+        <hr>
+        <div>
+            <input type="button" class="btn btn-secondary" onclick="add_existing()" value="Add existing body">
+{#            <button onclick="add_existing()" class="btn btn-secondary">Add existing body</button>#}
+            <input type="button" class="btn btn-secondary" onclick="add_custom()" value="Add custom body">
+            <br>
+            <hr id="br-primary">
+            <button type="submit" class="btn btn-primary btn-lg plot-primary" id="plot-primary">Plot</button>
+
+            <p id="DOWN"></p>
+        </div>
+        </form>
+        </div>
+    {% endif %}
+
+
+{% endblock %}

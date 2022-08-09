@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% load static %}
+{% block body_block %}
+
+<div class="h-100 p-5 bg-light border rounded-3">
+    <article class="welcome-text article-text">
+        <h1>Welcome to Orbiter project!</h1><br>
+        <hr>
+        <div class="container">
+            <div class="row">
+                <div class="col-7">
+                    <img src="{% static "img/demo_plot_2_2.png" %}" alt="Demo Image 2" style="width: 100%"/>
+                </div>
+                <div class="col-5">
+                    <p class="index-p">
+                        This app allows you to plot orbits and current positions of planets, asteroids, comets and
+                        other bodies of the Solar System (even non-existent!).
+                    </p>
+                    <p class="index-p">
+                        The calculations use Keplerian elements (aka Orbital elements) to calculate position of an
+                        object. By expanding this calculation to the whole sidereal period we are building an orbit,
+                        connecting positions of every 360 position coordinates - each build with a step of 1/360 of
+                        a orbital period.
+                    </p>
+                </div>
+{#                <div class="col">#}
+{#                    <img src="{% static "img/demo_plot_2.png" %}" alt="Demo Image 2" style="width: 100%"/>#}
+{#                </div>#}
+            </div>
+            <br>
+            <hr>
+            <br>
+            <div class="row">
+                <div class="col-12">
+                    <p class="index-p">To go to the orbit visualisation form, click "<b>ORBITER</b>" in navigation bar, or
+                    click <a href="{% url "orbit_display:welcome_vis" %}">HERE</a></p>
+                </div>
+            </div>
+        </div>
+    </article>
+</div>
+
+{% endblock %}

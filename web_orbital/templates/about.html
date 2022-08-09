@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block body_block %}
+
+<div class="h-100 p-5 bg-light border rounded-3">
+    <h1>About</h1><br>
+    <div class="row">
+        <div class="col-12">
+            <p class="fs-4 text-justify">This site contains an application of building a visualisation of <b>orbits</b>,
+                depending on the object. There are <b>orbital parameters</b> written in database for each
+                <b>planet</b> of Solar System.</p>
+            <p class="fs-4 text-justify">
+                If you want to add an existing object to visualisation, use the <b>Add existing body</b> button.
+            </p>
+            <p class="fs-4 text-justify">
+                If you want to add a self-specified object to visualisation, use the <b>Add custom body</b> button.
+            </p>
+            <hr>
+            <p>
+                Be warned: for comets and asteroids with high eccentricity plots may become distorted.
+                This is still to be fixed.
+            </p>
+            <p>
+                For any bugs and problem reports feel free to <a href="{% url 'contacts' %}">contact us</a>.
+            </p>
+            <p>
+                Further description of visualisation method still to be done.
+            </p>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
